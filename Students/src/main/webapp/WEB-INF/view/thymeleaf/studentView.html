@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>StudentRead</title>
+</head>
+<body>
+name : <b th:text="${student.name}"></b><br/>
+email : <b th:text="${student.email}"></b><br/>
+score : <b th:text="${student.score}"></b><br/>
+comment :<b th:text="${student.comment}"></b> <br/>
+<br/>
+<a th:href="'/student/'+${student.id}+'/modify'">정보 수정</a><br/>
+</body>
+</html>

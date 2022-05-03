@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>StudentModify</title>
+</head>
+<body>
+<form th:method="post" th:action="'/student/'+${student.id}+'/modify'">
+    name : <input type="text" name="name" th:value="${student.name}"/><br />
+    email : <input type="text" name="email" th:value="${student.email}" /> <br />
+    score : <input type="text" name="score" th:value="${student.score}"/> <br />
+    comment : <input type="text" name="comment" th:value="${student.comment}"><br />
+
+    <br />
+    <input type="submit" />
+</form>
+
+</body>
+</html>

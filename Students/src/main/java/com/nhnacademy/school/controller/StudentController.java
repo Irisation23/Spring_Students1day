@@ -7,12 +7,15 @@ import com.nhnacademy.school.exception.ValidationFailedException;
 import com.nhnacademy.school.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -33,7 +36,7 @@ public class StudentController {
 
     @GetMapping(value = "/{studentId}")
     public ModelAndView viewStudent(@ModelAttribute("student") Student student) {
-        ModelAndView mav = new ModelAndView("studentView");
+        ModelAndView mav = new ModelAndView("thymeleaf/studentView");
         if (Objects.isNull(student)) {
             throw new StudentNotFoundException("not found Students");
         }
@@ -48,7 +51,7 @@ public class StudentController {
             throw new StudentNotFoundException("학생을 찾을 수 없습니다.");
         }
         modelMap.put("student", student);
-        return "studentViewHidden";
+        return "thymeleaf/studentViewHiden";
     }
 
 
@@ -61,7 +64,7 @@ public class StudentController {
             map.put("student", student);
         }
 
-        return "studentModify";
+        return "thymeleaf/studentModify";
     }
 
     @PostMapping("/{studentId}/modify")
@@ -82,7 +85,7 @@ public class StudentController {
 
         map.put("student", student);
 
-        return "studentView";
+        return "thymeleaf/studentView";
     }
 
 }
